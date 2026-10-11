@@ -1,0 +1,202 @@
+[
+  {
+    "id": "nist-ai-rmf",
+    "shortName": "NIST AI RMF",
+    "title": "Artificial Intelligence Risk Management Framework (AI RMF 1.0), NIST AI 100-1",
+    "publisher": "National Institute of Standards and Technology (NIST)",
+    "year": 2023,
+    "published": "2023-01-26",
+    "url": "https://doi.org/10.6028/NIST.AI.100-1",
+    "fileUrl": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf",
+    "file": "nist-ai-rmf.pdf",
+    "format": "pdf",
+    "pageCount": 48,
+    "license": "Public domain in the United States (work of the U.S. Government, 17 U.S.C. 105)",
+    "licenseShort": "Public domain (U.S. Government work)",
+    "licenseNote": "The document carries no license statement of its own. NIST's site policy says its information is public and may be copied, with credit requested.",
+    "layout": "stream",
+    "skipPages": [
+      {
+        "from": 1,
+        "to": 5,
+        "reason": "cover, title page, contents, lists of tables and figures"
+      }
+    ]
+  },
+  {
+    "id": "nist-genai",
+    "shortName": "NIST GenAI Profile",
+    "title": "Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile, NIST AI 600-1",
+    "publisher": "National Institute of Standards and Technology (NIST)",
+    "year": 2024,
+    "published": "2024-07-26",
+    "url": "https://doi.org/10.6028/NIST.AI.600-1",
+    "fileUrl": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+    "file": "nist-genai.pdf",
+    "format": "pdf",
+    "pageCount": 64,
+    "license": "Public domain in the United States (work of the U.S. Government, 17 U.S.C. 105)",
+    "licenseShort": "Public domain (U.S. Government work)",
+    "licenseNote": "The front matter links to NIST's 'Copyright, Use, and Licensing Statements' for the Technical Series rather than printing a license.",
+    "layout": "stream",
+    "skipPages": [
+      {
+        "from": 1,
+        "to": 4,
+        "reason": "cover, title page, acknowledgments, contents"
+      },
+      {
+        "from": 58,
+        "to": 64,
+        "reason": "reference list"
+      }
+    ]
+  },
+  {
+    "id": "ai-safety-report",
+    "shortName": "Intl AI Safety Report",
+    "title": "International AI Safety Report 2026",
+    "publisher": "UK Department for Science, Innovation and Technology (DSIT), research series DSIT 2026/001",
+    "year": 2026,
+    "published": "2026-02-03",
+    "url": "https://internationalaisafetyreport.org/publication/international-ai-safety-report-2026",
+    "fileUrl": "https://internationalaisafetyreport.org/sites/default/files/2026-02/international-ai-safety-report-2026_1.pdf",
+    "file": "ai-safety-report.pdf",
+    "format": "pdf",
+    "pageCount": 220,
+    "license": "Open Government Licence v3.0 (Crown copyright 2026)",
+    "licenseShort": "Open Government Licence v3.0",
+    "licenseNote": "Licensed under OGL v3.0 'except where otherwise stated'. Third-party figures may need separate permission; this app stores text only. OGL asks for attribution, which the page footer and README give.",
+    "layout": "columns",
+    "unmappedGlyph": ".",
+    "skipPages": [
+      {
+        "from": 1,
+        "to": 5,
+        "reason": "cover, contributors, acknowledgements, contents"
+      },
+      {
+        "from": 157,
+        "to": 220,
+        "reason": "reference list and back cover"
+      }
+    ]
+  },
+  {
+    "id": "nhtsa-distraction",
+    "shortName": "NHTSA Distraction Guidelines",
+    "title": "Visual-Manual NHTSA Driver Distraction Guidelines for In-Vehicle Electronic Devices (78 FR 24818, Docket NHTSA-2010-0053)",
+    "publisher": "National Highway Traffic Safety Administration (NHTSA), published in the Federal Register",
+    "year": 2013,
+    "published": "2013-04-26",
+    "url": "https://www.govinfo.gov/app/details/FR-2013-04-26/2013-09883",
+    "fileUrl": "https://www.govinfo.gov/content/pkg/FR-2013-04-26/pdf/2013-09883.pdf",
+    "file": "nhtsa-distraction.pdf",
+    "format": "pdf",
+    "pageCount": 73,
+    "license": "Public domain in the United States (Federal Register notice, work of the U.S. Government)",
+    "licenseShort": "Public domain (U.S. Government work)",
+    "licenseNote": "",
+    "layout": "columns"
+  },
+  {
+    "id": "nhtsa-l2l3",
+    "shortName": "NHTSA L2/L3 Guidance",
+    "title": "Human Factors Design Guidance for Level 2 and Level 3 Automated Driving Concepts (DOT HS 812 555)",
+    "publisher": "National Highway Traffic Safety Administration (NHTSA); prepared by Battelle Memorial Institute",
+    "year": 2018,
+    "published": "2018-08-01",
+    "url": "https://www.nhtsa.gov/sites/nhtsa.gov/files/documents/13494_812555_l2l3automationhfguidance.pdf",
+    "fileUrl": "https://www.nhtsa.gov/sites/nhtsa.gov/files/documents/13494_812555_l2l3automationhfguidance.pdf",
+    "file": "nhtsa-l2l3.pdf",
+    "format": "pdf",
+    "pageCount": 127,
+    "license": "UNCLEAR. Published and freely distributed by NHTSA with no copyright notice, but written by a contractor.",
+    "licenseShort": "License unclear (contractor-written, no copyright notice)",
+    "licenseNote": "FLAG: 17 U.S.C. 105 covers works written by federal employees. This report was prepared by Battelle Memorial Institute under an NHTSA contract, and a contractor can hold copyright in a government-funded report. It carries no copyright notice and NHTSA distributes it publicly, so quoting short passages with attribution is low risk, but it is not confirmed public domain. Check before treating it as openly licensed.",
+    "layout": "stream",
+    "skipPages": [
+      {
+        "from": 1,
+        "to": 5,
+        "reason": "cover, disclaimer, report documentation page, contents"
+      },
+      {
+        "from": 100,
+        "to": 127,
+        "reason": "index, abbreviations, equations, list of related documents, reference list"
+      }
+    ]
+  },
+  {
+    "id": "fda-ai-devices",
+    "shortName": "FDA AI Device Draft",
+    "title": "Artificial Intelligence-Enabled Device Software Functions: Lifecycle Management and Marketing Submission Recommendations (Draft Guidance, Docket FDA-2024-D-4488)",
+    "publisher": "U.S. Food and Drug Administration (FDA)",
+    "year": 2025,
+    "published": "2025-01-07",
+    "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/artificial-intelligence-enabled-device-software-functions-lifecycle-management-and-marketing",
+    "fileUrl": "https://www.fda.gov/media/184856/download",
+    "file": "fda-ai-devices.pdf",
+    "format": "pdf",
+    "pageCount": 67,
+    "license": "Public domain in the United States (FDA website content is not copyrighted unless noted)",
+    "licenseShort": "Public domain (U.S. Government work). Draft guidance",
+    "licenseNote": "This is a DRAFT, marked 'Not for Implementation'. FDA recommends noting the date a copy was made: this copy was downloaded 2026-10-10.",
+    "layout": "stream",
+    "skipPages": [
+      {
+        "from": 1,
+        "to": 3,
+        "reason": "cover, preface, contents"
+      }
+    ]
+  },
+  {
+    "id": "fda-human-factors",
+    "shortName": "FDA Human Factors",
+    "title": "Applying Human Factors and Usability Engineering to Medical Devices (Docket FDA-2011-D-0469)",
+    "publisher": "U.S. Food and Drug Administration (FDA)",
+    "year": 2026,
+    "published": "2026-08-03",
+    "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/applying-human-factors-and-usability-engineering-medical-devices",
+    "fileUrl": "https://www.fda.gov/media/80481/download",
+    "file": "fda-human-factors.pdf",
+    "format": "pdf",
+    "pageCount": 45,
+    "license": "Public domain in the United States (FDA website content is not copyrighted unless noted)",
+    "licenseShort": "Public domain (U.S. Government work)",
+    "licenseNote": "The cover reads 'Document issued on August 3, 2026. Document originally issued on February 3, 2016.' This is the current revision as of the download on 2026-10-10.",
+    "layout": "stream",
+    "skipPages": [
+      {
+        "from": 1,
+        "to": 4,
+        "reason": "cover, preface, contents"
+      },
+      {
+        "from": 42,
+        "to": 44,
+        "reason": "reference list"
+      }
+    ],
+    "keepSmallPrint": true
+  },
+  {
+    "id": "osha-robots",
+    "shortName": "OSHA Robot Safety",
+    "title": "OSHA Technical Manual, Section IV, Chapter 4: Industrial Robot Systems and Industrial Robot System Safety",
+    "publisher": "Occupational Safety and Health Administration (OSHA), U.S. Department of Labor",
+    "year": 2021,
+    "published": "2021-09-01",
+    "url": "https://www.osha.gov/otm/section-4-safety-hazards/chapter-4",
+    "fileUrl": "https://www.osha.gov/otm/section-4-safety-hazards/chapter-4",
+    "file": "osha-robots.html",
+    "format": "html",
+    "pageCount": null,
+    "license": "Public domain in the United States (work of the U.S. Government)",
+    "licenseShort": "Public domain (U.S. Government work)",
+    "licenseNote": "The page itself shows no date. The 2021-09-01 date comes from the OSHA notice that announced this chapter update (directive TED 01-00-015, 'Information Date: 09/01/2021'), so treat it as approximate. The chapter refers to copyrighted consensus standards (ANSI/RIA, ISO) by name but does not reproduce them.",
+    "layout": "html"
+  }
+]
