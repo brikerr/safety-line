@@ -46,3 +46,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 AGENTS.md
+
+# eval: keep only the baseline run
+*.bak
+eval/results/*
+!eval/results/20261020-180851-local/

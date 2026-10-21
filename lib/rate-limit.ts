@@ -55,6 +55,10 @@ function visitorId(request: Request): string {
  * message to show, when either limit has been reached.
  */
 export async function checkRateLimit(request: Request): Promise<RateLimitResult> {
+  // Local eval runs: skip the limit, and write nothing to question_log, so
+  // they neither wait nor use up the shared daily count.
+  if (rateLimitDisabled()) return { allowed: true };
+
   await ensureTable();
   const pool = getPool();
   const visitor = visitorId(request);
@@ -86,4 +90,18 @@ export async function checkRateLimit(request: Request): Promise<RateLimitResult>
   );
   const overVisitorLimit = mine.rows[0].n >= PER_VISITOR_PER_HOUR;
   return { allowed: false, message: overVisitorLimit ? VISITOR_MESSAGE : GLOBAL_MESSAGE };
+}
+
+/**
+ * Is the limit switched off? Only when DISABLE_RATE_LIMIT=1 is set AND this is
+ * not production. "next dev" runs with NODE_ENV=development; "next build" and
+ * "next start" use production, and any Vercel deployment (preview or production) sets VERCEL_ENV, so the
+ * flag only works on your own machine. Setting the flag there by mistake changes nothing.
+ */
+function rateLimitDisabled(): boolean {
+  return (
+    process.env.DISABLE_RATE_LIMIT === "1" &&
+    !process.env.VERCEL_ENV &&
+    process.env.NODE_ENV !== "production"
+  );
 }

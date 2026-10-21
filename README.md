@@ -123,6 +123,21 @@ What to expect:
 
 In the browser, also try "What is the best pizza in Seattle?" It should start with "The documents I have don't answer that."
 
+### Run the eval without the rate limit
+
+The local dev server counts questions in the same `question_log` table as production, so a full run of the 50-question gold set would hit the limit after 10 questions. For local runs only, start the dev server with the limit switched off:
+
+```bash
+# terminal 1
+DISABLE_RATE_LIMIT=1 npm run dev
+
+# terminal 2
+uv run eval/score.py --per-hour 0            # all 50 questions
+uv run eval/score.py --per-hour 0 --ids q01  # one question
+```
+
+With `DISABLE_RATE_LIMIT=1`, `/api/ask` skips both limits and writes nothing to `question_log`, so local runs do not use up the shared daily count. The flag only works when the app is not running in production: it is ignored when `NODE_ENV` is `production` (`next build`, `next start`) or `VERCEL_ENV` is `production` (the live site). `--per-hour 0` turns off the scorer's own pacing; leave it at the default of 10 when the limit is on. Each question still costs one embedding call and one chat call.
+
 ## Environment variables
 
 | Name | Required | What it is |
@@ -133,6 +148,7 @@ In the browser, also try "What is the best pizza in Seattle?" It should start wi
 | `CHAT_MODEL` | No | Default `claude-sonnet-5-5`. Any Anthropic model id |
 | `EMBEDDING_MODEL` | No | Default `text-embedding-3-small`. Any OpenAI embedding model id |
 | `EMBEDDING_DIMENSIONS` | No | Default `1536`. Must match the embedding model |
+| `DISABLE_RATE_LIMIT` | No | Set to `1` to skip the rate limit in local development. Ignored in production. See "Run the eval without the rate limit" |
 
 Keys live in `.env.local`, which git ignores. `.env.example` holds placeholders only. No key appears anywhere in the code.
 
@@ -222,6 +238,23 @@ A PDF stores positioned fragments of text, not paragraphs, so `scripts/lib/pdf.t
 - **Reading order:** each document is marked `stream` or `columns` in `sources.json`. `stream` trusts the order stored in the file, which works for documents exported from Word and keeps their tables intact. `columns` is for the Federal Register notice (three columns) and the International AI Safety Report (two columns): the page is cut into blocks, column gutters are found in each block, and each column is read top to bottom.
 - **Skipped pages:** covers, contents pages and reference lists are skipped by page range, listed with a reason in `sources.json`.
 - **One glyph fix:** the International AI Safety Report uses a font whose full stop has no text mapping, so it comes out as an unknown character. `sources.json` tells the script to read it as a full stop. This was confirmed against a second PDF reader on 141 of 144 affected pages.
+
+## Baseline results (Oct 20, 2026)
+
+Run on Oct 20, 2026 against the local dev server (rate limit off), all 50 questions in `eval/gold_draft.jsonl`, exact page matching, judge model `claude-sonnet-5-5`. Full output: `eval/results/20261020-180851-local/`.
+
+| Slice | n | errors | Refusal acc. | Cit. precision | Cit. recall | Doc recall | Retrieval hit | Keyword cov. | Keyword pass | Judge score |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Overall | 50 | 0 | 90% | 30% | 61% | 95% | 66% | 69% | 82% | 77% |
+| single | 36 | 0 | 89% | 32% | 65% | 97% | 71% | 72% | 83% | 76% |
+| multi | 4 | 0 | 75% | 11% | 25% | 75% | 25% | 41% | 25% | 38% |
+| refuse | 10 | 0 | 100% | n/a | n/a | n/a | n/a | n/a | 100% | 94% |
+
+**How to read it:** refusal accuracy covers every question (answered when it should, declined when it should). Citation precision and recall check whether the cited pages match the gold pages; doc recall checks only the document. Retrieval hit is whether any retrieved passage covered the gold page, cited or not. Keyword and judge scores grade the answer text. Refuse questions have no gold pages, so they show n/a there.
+
+**Takeaway:** the answers are mostly sound and the app refuses out-of-scope questions reliably. The weak spot is page-level retrieval and citation precision: the app usually finds the right document but often not the right page, and it cites extra pages. Five answerable questions were refused because retrieval missed the gold pages. Multi-document questions are weakest. The next step is better search (for example hybrid keyword plus vector search, or reranking).
+
+Note: after this run, q37 was reworded to ask only about the OSHA robot chapter (its NHTSA half was dropped during gold review), so q37's row in this run used the older question.
 
 ## Known limits
 
