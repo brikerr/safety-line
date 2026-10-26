@@ -23,7 +23,7 @@ Read this first. It says what has been checked and what has not.
 | Answers from the real models (Anthropic chat, OpenAI embeddings) | Checked on 2026-10-11 with `npm run check`. The robot and NIST answers were verified claim by claim against the cited passages, and every claim is there. The pizza question is declined as intended |
 | The driver confirmation example question | Declined, correctly: the documents barely cover a person confirming before a system acts. It points to the nearest NHTSA material instead. See "Known limits" |
 | Rate limit, About line, fixed answer for questions about the app | Checked on 2026-10-11 against the real database: requests 1 to 10 answered, request 11 refused with the limit message |
-| Vercel preview deployment | **Not deployed** |
+| Vercel deployment | **Live:** https://safety-line-smoky.vercel.app |
 
 ## The documents
 
@@ -174,7 +174,7 @@ How it works (`lib/rate-limit.ts`): each answered question adds a row to a small
 
 ## Deploy a preview on Vercel
 
-Not done yet. The project needs exactly three environment variables on Vercel, the same three as `.env.local`:
+Done: the app is live at https://safety-line-smoky.vercel.app. To deploy your own copy, the project needs exactly three environment variables on Vercel, the same three as `.env.local`:
 
 | Variable | Value |
 | --- | --- |
